@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
   final GlobalKey _qrkey = GlobalKey();
   bool dirExists = false;
   dynamic externalDir = '/storage/emulated/0/Download/Qr_code';
-
+  bool isSwitch = false;
   Future<void> _captureAndSavePng() async {
     try{
       RenderRepaintBoundary boundary = _qrkey.currentContext!.findRenderObject() as RenderRepaintBoundary;
@@ -79,43 +79,52 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(
             height: 15,
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-            child: TextField(
-              controller: _textController,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.all(10),
-                labelText: 'Enter Text',
-                labelStyle: TextStyle(color: Colors.grey),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color: Color.fromARGB(255, 0, 146, 20), width: 2.0),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey, width: 2.0),
-                ),
-              ),
-            ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          //   child: TextField(
+          //     controller: _textController,
+          //     decoration: const InputDecoration(
+          //       contentPadding: EdgeInsets.all(10),
+          //       labelText: 'Enter Text',
+          //       labelStyle: TextStyle(color: Colors.grey),
+          //       focusedBorder: OutlineInputBorder(
+          //         borderSide: BorderSide(
+          //             color: Color.fromARGB(255, 0, 146, 20), width: 2.0),
+          //       ),
+          //       enabledBorder: OutlineInputBorder(
+          //         borderSide: BorderSide(color: Colors.grey, width: 2.0),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 15,
+          // ),
+          // RawMaterialButton(
+          //   onPressed: () {
+          //     setState(() {
+          //       data = _textController.text;
+          //     });
+          //   },
+          //   fillColor: AppColors.primaryColor,
+          //   shape: const StadiumBorder(),
+          //   padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+          //   child: const Text(
+          //     'Generate',
+          //     style: TextStyle(
+          //       color: Colors.white,
+          //       fontSize: 18,
+          //     ),
+          //   ),
+          // ),
+          Column(
+            children: [
+              Text('Scan for Rewards', style: TextStyle(color: Colors.grey, fontSize: 25,fontWeight: FontWeight.bold),),
+              Text('Scan to earn points and use rewards', style: TextStyle(color: Colors.grey, fontSize: 20),),
+            ],
           ),
           const SizedBox(
             height: 15,
-          ),
-          RawMaterialButton(
-            onPressed: () {
-              setState(() {
-                data = _textController.text;
-              });
-            },
-            fillColor: AppColors.primaryColor,
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-            child: const Text(
-              'Generate',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
           ),
           const SizedBox(
             height: 15,
@@ -151,18 +160,43 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(
             height: 15,
           ),
-          RawMaterialButton(
-            onPressed: _captureAndSavePng,
-            fillColor: AppColors.primaryColor,
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-            child: const Text(
-              'Export',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text('Redeem your points', style: TextStyle(fontSize: 20),),
+                   Spacer(),
+                   // RadioMenuButton(onChanged: null, value: null, child: null, groupValue: null,),
+                    Switch(value: isSwitch,activeColor: AppColors.primaryColor, onChanged: (value){setState(() {
+                      isSwitch = value;
+                    });}),
+                  ],
+                )
+              ],
             ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              RawMaterialButton(
+                onPressed: _captureAndSavePng,
+                fillColor: AppColors.primaryColor,
+                shape: const StadiumBorder(),
+                padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+                child: const Text(
+                  'Add Payment Method',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       )),

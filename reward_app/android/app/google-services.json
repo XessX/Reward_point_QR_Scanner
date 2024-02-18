@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "425445677295",
+    "project_id": "rewardapp-1163c",
+    "storage_bucket": "rewardapp-1163c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425445677295:android:f36212ea5bf2d88215231a",
+        "android_client_info": {
+          "package_name": "com.example.reward_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMcGE3LrACyPi3Q1Fv-HdXkg143aGdvU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
