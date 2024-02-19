@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reward_app/screens/main_page.dart';
 import 'package:reward_app/styles.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:reward_app/user_auth/auth_checker.dart';
 import 'firebase_options.dart';
-import 'user_auth/login_page.dart';
+import 'screens/login_page.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(appBarTheme: AppBarTheme(color: AppColors.primaryColor)),
-      home: const LoginPage(),
+      home: const AuthChecker(),
     );
   }
 }
