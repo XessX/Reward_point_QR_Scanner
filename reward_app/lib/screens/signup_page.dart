@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:reward_app/styles.dart';
 import 'package:reward_app/widgets/crud_user.dart';
 
 import '../user_auth/firebase_auth_implementation.dart';
@@ -38,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("SignUp"),
+        title: Text("SignUp", style: TextStyle(color: Colors.white),),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -87,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: AppColors.primaryColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
