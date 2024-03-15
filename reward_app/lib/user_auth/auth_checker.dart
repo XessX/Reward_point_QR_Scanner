@@ -8,9 +8,6 @@ import '../widgets/toast.dart';
 
 
 class AuthChecker extends StatelessWidget {
-
-
-
   const AuthChecker({super.key});
 
   @override

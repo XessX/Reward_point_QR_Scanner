@@ -13,10 +13,3 @@ Future addUserTable(username, email, uid) async {
   );
 }
 
-updateUserDetails(key, value, uid) async {
-  await FirebaseFirestore.instance.collection('customers').doc(uid).update(
-    {
-      key: value,
-    },
-  );
-}
